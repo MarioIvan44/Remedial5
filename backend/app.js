@@ -1,6 +1,7 @@
 //Importar express
 import express from 'express';
-
+import usersRoutes from './routes/users.js';
+import ordersRoutes from './routes/orders.js';
 import cors from 'cors'; 
 //Importante 
 import cookieParser from 'cookie-parser';
@@ -21,9 +22,9 @@ app.use(cookieParser());
 //Acepta JSON 
 app.use(express.json());
 
-app.use(limiter);
 
 //Creamos los endpoints
-
+app.use('/api/users', usersRoutes);
+app.use('/api/orders', ordersRoutes);
 
 export default app;
