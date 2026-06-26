@@ -9,13 +9,13 @@ const router = express.Router();
 //(api/orders/)
 router.route("/")
 .get(ordersController.getOrders)
-.post(ordersController.createOrder)
+.post( validateAuthCookie(["admin"]), ordersController.createOrder)
 
 //Definimos los method para el endpoint que includes un parámetro dinámico ":id". Este parámetro se utiliza para identificar un recurso específico, como un producto en este caso. Los métodos PUT y DELETE se utilizan para actualizar y eliminar un recurso específico identificado por su ID, respectivamente. 
 //(api/orders/:id)
 router.route("/:id")
 .put( ordersController.updateOrder)
-.delete( ordersController.deleteOrder)
+.delete(validateAuthCookie(["admin"]), ordersController.deleteOrder)
 .get( ordersController.getOrderById)
 
 export default router;
