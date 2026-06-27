@@ -31,5 +31,9 @@ app.use(express.json());
 //Creamos los endpoints
 app.use('/api/users', usersRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/register', registerUsersRoutes);
+app.use('/api/loginAdmin', loginAdminRoutes);
+app.use('/api/loginCustomers', loginCustomersRoutes);
+app.use('/api/logout', logoutRoutes);
 
 export default app;
