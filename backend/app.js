@@ -36,4 +36,5 @@ app.use('/api/loginAdmin', loginAdminRoutes);
 app.use('/api/loginCustomers', loginCustomersRoutes);
 app.use('/api/logout', logoutRoutes);
 
+
 export default app;

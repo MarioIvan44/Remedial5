@@ -73,6 +73,9 @@ registerCustomerController.register = async (req, res) => {
         user: config.email.user_email,
         pass: config.email.user_password,
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
 
     //#2- mailOptions -> ¿quien lo recibe?
@@ -135,12 +138,11 @@ registerCustomerController.verifyCode = async (req, res) => {
 
     //Guardamos todo en la base de datos
     const newCustomer = new usersModel({
-        name,
-    email,
-    phone,
-    isVerified,
-    loginAttempts,
-    timeOut,
+      name,
+      email,
+      phone,
+      loginAttempts,
+      timeOut,
       password: passwordHash,
       isVerified: true,
     });
@@ -148,12 +150,6 @@ registerCustomerController.verifyCode = async (req, res) => {
     //Guardamos todo en la base de datos
     await newCustomer.save();
 
-    //si el código está bien, entonces, colocamos el campo
-    //"isVerified" en true
-    const customer = await usersModel.findOne({ email });
-    customer.isVerified = true;
-    await customer.save();
-    //
     res.clearCookie("verificationToken");
 
     res.json({ message: "Email verified successfully" });
