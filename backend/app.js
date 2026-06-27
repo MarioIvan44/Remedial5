@@ -6,6 +6,7 @@ import registerUsersRoutes from './src/routes/registerUsers.js';
 import loginAdminRoutes from './src/routes/loginAdmin.js';
 import loginCustomersRoutes from './src/routes/loginCustomers.js';
 import logoutRoutes from './src/routes/logout.js';
+import wompiRoutes from './src/routes/wompi.js';
 
 import cors from 'cors'; 
 //Importante 
@@ -35,6 +36,6 @@ app.use('/api/register', registerUsersRoutes);
 app.use('/api/loginAdmin', loginAdminRoutes);
 app.use('/api/loginCustomers', loginCustomersRoutes);
 app.use('/api/logout', logoutRoutes);
-
+app.use('/api/wompi', wompiRoutes);
 
 export default app;
