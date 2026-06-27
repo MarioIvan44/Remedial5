@@ -28,7 +28,7 @@ registerCustomerController.register = async (req, res) => {
 
   try {
     //Verificar si el cliente ya existe
-    const existCustomer = await customerModel.findOne({ email });
+    const existCustomer = await usersModel.findOne({ email });
     if (existCustomer) {
       return res.status(400).json({ message: "Customer already exist" });
     }
@@ -134,7 +134,7 @@ registerCustomerController.verifyCode = async (req, res) => {
     }
 
     //Guardamos todo en la base de datos
-    const newCustomer = new customerModel({
+    const newCustomer = new usersModel({
         name,
     email,
     phone,
@@ -150,7 +150,7 @@ registerCustomerController.verifyCode = async (req, res) => {
 
     //si el código está bien, entonces, colocamos el campo
     //"isVerified" en true
-    const customer = await customerModel.findOne({ email });
+    const customer = await usersModel.findOne({ email });
     customer.isVerified = true;
     await customer.save();
     //

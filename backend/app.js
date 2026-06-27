@@ -2,6 +2,11 @@
 import express from 'express';
 import usersRoutes from './routes/users.js';
 import ordersRoutes from './routes/orders.js';
+import registerUsersRoutes from './routes/registerUsers.js';
+import loginAdminRoutes from './routes/loginAdmin.js';
+import loginCustomersRoutes from './routes/loginCustomers.js';
+import logoutRoutes from './routes/logout.js';
+
 import cors from 'cors'; 
 //Importante 
 import cookieParser from 'cookie-parser';
