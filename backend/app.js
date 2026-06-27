@@ -1,11 +1,11 @@
 //Importar express
 import express from 'express';
-import usersRoutes from './routes/users.js';
-import ordersRoutes from './routes/orders.js';
-import registerUsersRoutes from './routes/registerUsers.js';
-import loginAdminRoutes from './routes/loginAdmin.js';
-import loginCustomersRoutes from './routes/loginCustomers.js';
-import logoutRoutes from './routes/logout.js';
+import usersRoutes from "./src/routes/users.js";
+import ordersRoutes from './src/routes/orders.js';
+import registerUsersRoutes from './src/routes/registerUsers.js';
+import loginAdminRoutes from './src/routes/loginAdmin.js';
+import loginCustomersRoutes from './src/routes/loginCustomers.js';
+import logoutRoutes from './src/routes/logout.js';
 
 import cors from 'cors'; 
 //Importante 
